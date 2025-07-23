@@ -1,0 +1,15 @@
+<!-- app/views/orders/index.html.erb -->
+
+<h2>Meus Pedidos</h2>
+
+<%= link_to "Novo Pedido", new_order_path %>
+
+<ul>
+  <% @orders.each do |order| %>
+    <li>
+      <strong><%= order.description %></strong> - 
+      <%= order.address %> - 
+      <%= order.status %>
+    </li>
+  <% end %>
+</ul>

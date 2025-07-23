@@ -1,0 +1,25 @@
+<h2>Novo Pedido</h2>
+
+<%= form_with model: @order, local: true do |f| %>
+  <div>
+    <%= f.label :pickup_address, "Endereço de coleta" %><br>
+    <%= f.text_field :pickup_address %>
+  </div>
+
+  <div>
+    <%= f.label :delivery_address, "Endereço de entrega" %><br>
+    <%= f.text_field :delivery_address %>
+  </div>
+
+  <div>
+    <%= f.label :description, "Descrição dos itens" %><br>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :estimated_value, "Valor estimado (R$)" %><br>
+    <%= f.number_field :estimated_value, step: 0.01 %>
+  </div>
+
+  <%= f.submit "Criar Pedido" %>
+<% end %>
