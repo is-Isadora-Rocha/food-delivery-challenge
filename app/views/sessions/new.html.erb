@@ -1,0 +1,16 @@
+<h2>Login Falso</h2>
+
+<% if flash[:alert] %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% end %>
+
+<%= form_with url: "/session", method: :post do %>
+  <%= label_tag :name %>
+  <%= text_field_tag :name %><br>
+
+  <%= label_tag :email %>
+  <%= email_field_tag :email %><br>
+
+  <%= submit_tag "Entrar" %>
+<% end %>
+
