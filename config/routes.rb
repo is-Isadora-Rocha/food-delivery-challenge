@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :users, only: %i[:create]
-    resources :orders, only: %i[:create]
-    get 'orders/user/:user/id', to: 'orders#by_user'
-  end
+  resources :users, only: [:create]
+  resources :orders, only: [:create]
+  get 'orders/user/:user_id', to: 'orders#by_user'
+end
 
 
   root "sessions#new"
