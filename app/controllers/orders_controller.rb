@@ -1,8 +1,11 @@
 class OrdersController < ApplicationController
-  before_action :set_user
+  #before_action :set_user
 
   def index
-    @orders = @user.orders
+    #@user = User.find(params[:user_id])
+    #@orders = @user.orders
+
+    @orders = Order.all
   end
 
   def new
@@ -10,10 +13,13 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = @user.orders.new(order_params)
+    @order = Order.new(order_params)
+    @order.user = User.first
+    @order.requested_at = Time.current
     if @order.save
       redirect_to orders_path
     else
+      puts @order.errors.full_messages
       render :new
     end
   end
@@ -21,7 +27,8 @@ class OrdersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(session[:user_id])
+    #@user = User.find(session[:user_id])
+    @user = User.first
   end
 
   def order_params
