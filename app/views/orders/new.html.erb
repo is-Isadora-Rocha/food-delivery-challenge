@@ -18,8 +18,19 @@
 
   <div>
     <%= f.label :estimated_value, "Valor estimado (R$)" %><br>
-    <%= f.number_field :estimated_price, step: 0.01 %>
+    <%= f.number_field :estimated_price, step: 0.01, min: 0.01 %>
   </div>
+
+  <% if @order.errors.any? %>
+  <div style="color: red;">
+    <h4><%= pluralize(@order.errors.count, "erro") %> impediram o salvamento do pedido:</h4>
+    <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
 
   <%= f.submit "Criar Pedido" %>
 <% end %>
