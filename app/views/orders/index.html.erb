@@ -7,9 +7,10 @@
 <ul>
   <% @orders.each do |order| %>
     <li>
-      <strong><%= order.description %></strong> - 
-      <%= order.address %> - 
-      <%= order.status %>
+      <strong><%= order.items_description %></strong> |
+      De: <%= order.pickup_address %> → Para: <%= order.delivery_address %> |
+      Preço estimado: R$ <%= number_to_currency(order.estimated_price, unit: "", separator: ",", delimiter: ".") %> |
+      Data: <%= order.requested_at.strftime("%d/%m/%Y %H:%M") %>
     </li>
   <% end %>
 </ul>
