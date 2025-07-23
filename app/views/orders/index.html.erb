@@ -1,16 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<!-- app/views/orders/index.html.erb -->
 
-<% content_for :title, "Orders" %>
+<h2>Meus Pedidos</h2>
 
-<h1>Orders</h1>
+<%= link_to "Novo Pedido", new_order_path %>
 
-<div id="orders">
+<ul>
   <% @orders.each do |order| %>
-    <%= render order %>
-    <p>
-      <%= link_to "Show this order", order %>
-    </p>
+    <li>
+      <strong><%= order.description %></strong> - 
+      <%= order.address %> - 
+      <%= order.status %>
+    </li>
   <% end %>
-</div>
-
-<%= link_to "New order", new_order_path %>
+</ul>
