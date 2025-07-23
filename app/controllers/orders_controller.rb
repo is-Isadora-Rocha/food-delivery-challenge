@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :require_login
   before_action :set_order, only: %i[ show edit update destroy ]
 
   # GET /orders or /orders.json
@@ -58,6 +59,12 @@ class OrdersController < ApplicationController
   end
 
   private
+
+    def require_login
+      redirect_to "/session" unless session[:user_id]
+    end
+
+
     # Use callbacks to share common setup or constraints between actions.
     def set_order
       @order = Order.find(params[:id])
