@@ -1,16 +1,20 @@
 <h2>Login Falso</h2>
 
-<% if flash[:alert] %>
-  <p style="color: red;"><%= flash[:alert] %></p>
+<%= form_with model: @user_login, url: "/session", method: :post, local: true do |f| %>
+  
+  <div>
+    <%= f.label :name, t("login.labels.name") %><br>
+    <%= f.text_field :name, placeholder: t("login.placeholder.name") %>
+    <%= field_error(@user_login, :name) %>
+  </div>
+
+  <div>
+    <%= f.label :email, t("login.labels.email") %><br>
+    <%= f.email_field :email, placeholder: t("login.placeholder.email") %>
+    <%= field_error(@user_login, :email) %>
+  </div>
+
+  <div>
+    <%= f.submit t("helpers.submit.session.create") %>
+  </div>
 <% end %>
-
-<%= form_with url: "/session", method: :post do %>
-  <%= label_tag :name %>
-  <%= text_field_tag :name %><br>
-
-  <%= label_tag :email %>
-  <%= email_field_tag :email %><br>
-
-  <%= submit_tag "Entrar" %>
-<% end %>
-

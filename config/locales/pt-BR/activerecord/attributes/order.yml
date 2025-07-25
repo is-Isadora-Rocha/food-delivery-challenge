@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    attributes:
+      order:
+        pickup_address: "Endereço de coleta"
+        delivery_address: "Endereço de entrega"
+        items_description: "Descrição dos itens"
+        requested_at: "Data da solicitação"
+        estimated_price: "Valor estimado"

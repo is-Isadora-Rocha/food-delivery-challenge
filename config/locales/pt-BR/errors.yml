@@ -1,0 +1,5 @@
+pt-BR:
+  errors:
+    models:
+      user:
+        not_found: "Erro ao salvar o usuário. Tente novamente."
