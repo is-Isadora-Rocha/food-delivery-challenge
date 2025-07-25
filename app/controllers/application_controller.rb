@@ -4,10 +4,12 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-
-    def current_user
-      @current_user ||= User.find_by(session[:user_id]) if session[:user_id]
-    end
-
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
+
+  def render_error(message, status = :unprocessable_entity)
+    render json: { error: message }, status: status
+  end
+
+
 end
