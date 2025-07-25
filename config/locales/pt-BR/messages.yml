@@ -4,3 +4,7 @@ pt-BR:
       blank: "não pode ficar em branco"
       greater_than: "deve ser maior que %{count}"
       blank_fields: "Por favor, preencha seu nome e email para continuar."
+    user:
+      blank_id: "Por favor, informe o ID do usuário."
+      not_found: "Usuário não encontrado."
+      no_orders: "Nenhum pedido encontrado para este usuário."

@@ -7,3 +7,13 @@ pt-BR:
         items_description: "Descrição dos itens"
         requested_at: "Data da solicitação"
         estimated_price: "Valor estimado"
+
+      orders:
+        my_orders_title: "Meus Pedidos"
+        new_order_button: "Novo Pedido"
+        no_orders: "Você ainda não possui pedidos."
+        search_title: "Buscar Pedidos por ID de Usuário"
+        user_id_label: "ID do Usuário"
+        search_button: "Buscar"
+        results_title: "Pedidos encontrados:"
+
