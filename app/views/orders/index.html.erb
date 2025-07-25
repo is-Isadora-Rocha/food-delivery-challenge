@@ -1,16 +1,23 @@
 <!-- app/views/orders/index.html.erb -->
 
-<h2>Meus Pedidos</h2>
+<h2><%= t('orders.my_orders_title') %></h2>
 
-<%= link_to "Novo Pedido", new_order_path %>
+<%= link_to t('orders.new_order_button'), new_order_path %>
 
-<ul>
+<% if @orders.any? %>
+  <ul>
   <% @orders.each do |order| %>
     <li>
-      <strong><%= order.items_description %></strong> |
-      De: <%= order.pickup_address %> → Para: <%= order.delivery_address %> |
-      Preço estimado: R$ <%= number_to_currency(order.estimated_price, unit: "", separator: ",", delimiter: ".") %> |
-      Data: <%= order.requested_at.strftime("%d/%m/%Y %H:%M") %>
+    <p><strong><%= order.items_description %></strong></p>
+      <p>De: <%= order.pickup_address %> → Para: <%= order.delivery_address %></p>
+      <p>Preço estimado: R$ <%= number_to_currency(order.estimated_price, unit: "", separator: ",", delimiter: ".") %></p>
+      <p>Data: <%= order.requested_at.strftime("%d/%m/%Y %H:%M") %></p>
+      <hr>
     </li>
   <% end %>
 </ul>
+<% else %>
+  <p>Você ainda não possui pedidos.</p>
+<% end %>
+
+
