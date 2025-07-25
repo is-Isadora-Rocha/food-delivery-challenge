@@ -1,27 +1,36 @@
 class Api::OrdersController < ApplicationController
 
+   skip_before_action :verify_authenticity_token
+
   def user_orders
     user = User.find(params[:user_id])
     render json: user.orders, status: :ok
+
   rescue ActiveRecord::RecordNotFound
     render json: { error: I18n.t("errors.user.not_found") }, status: :not_found
+
   end
 
 
   def create
-    order = Order.new(order_params)
-    if order.save
-      render json: order, status: :created
-    else
-      puts order.errors.full_messages
-      render json: { errors: order.errors.full_messages }, status: :unprocessable_entity
-    end
+  order = Order.new(order_params)
+
+  if order.save
+    render json: order, status: :created
+  else
+    render json: { errors: order.errors.full_messages }, status: :unprocessable_entity
   end
+end
+
 
   def by_user
-    user = User.find_by(id: params[:user_id])
+    # Rails.logger.info "Parâmetro id recebido: #{params[:id]}"
+    # Rails.logger.info "Usuários no banco: #{User.pluck(:id, :name).inspect}"
+
+    user = User.find_by(id: params[:id])
     if user
-      render json: user.orders
+      # render json: user.orders
+      render json: user.orders, status: :ok
     else
       render json: { error: I18n.t("errors.user.not_found") }, status: :not_found
     end
