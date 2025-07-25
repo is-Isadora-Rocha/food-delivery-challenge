@@ -1,0 +1,6 @@
+pt-BR:
+  activerecord:
+    attributes:
+      user_login:
+        name: "Nome"
+        email: "Email"

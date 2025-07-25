@@ -1,0 +1,39 @@
+pt-BR:
+  helpers:
+    submit:
+      session:
+        create: "Entrar"
+        submit:
+          create: "Criar %{model}"
+          update: "Atualizar %{model}"
+          submit: "Salvar %{model}"
+        session:
+          create: "Entrar"
+  login:
+    labels:
+      name: "Nome"
+      email: "Email"
+    placeholder:
+      name: "Digite seu nome"
+      email: "Digite seu email"
+    errors:
+      blank_fields: "Por favor, preencha seu nome e email para continuar."
+  errors:
+    messages:
+      blank: "não pode ficar em branco"
+      greater_than: "%{model} deve ser maior que %{count}"
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      short: "%d/%m %H:%M"
+      long: "%d de %B de %Y, %H:%M"
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d/%m"
+      long: "%d de %B de %Y"
+  number:
+    format:
+      separator: ","
+      delimiter: "."
+      precision: 2
