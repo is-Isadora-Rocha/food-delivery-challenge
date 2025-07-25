@@ -1,0 +1,37 @@
+<h1>Buscar Pedidos por ID de Usuário</h1>
+<h1><%= t('orders.search_title') %></h1>
+
+<%= form_with url: by_user_orders_path, method: :post, local: true do %>
+  <div>
+    <%= label_tag :user_id, t('orders.user_id_label') %>
+    <%= text_field_tag :user_id, params[:user_id], required: true %>
+  </div>
+
+  <div>
+    <%= submit_tag t('orders.search_button') %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% elsif flash[:notice] %>
+  <p style="color: green;"><%= flash[:notice] %></p>
+<% end %>
+
+
+<% if @orders.present? %>
+  <h2><%= t('orders.results_title') %></h2>
+  <ul>
+    <% @orders.each do |order| %>
+      <li>
+        <p><strong>ID:</strong> <%= order.id %></p>
+        <p><strong>Endereço de coleta:</strong> <%= order.pickup_address %></p>
+        <p><strong>Endereço de entrega:</strong> <%= order.delivery_address %></p>
+        <p><strong>Descrição dos itens:</strong> <%= order.items_description %></p>
+        <p><strong>Preço estimado:</strong> R$ <%= number_with_precision(order.estimated_price, precision: 2) %></p>
+        <p><strong>Data do pedido:</strong> <%= l(order.requested_at, format: "%d/%m/%Y %H:%M") %></p>
+        <hr>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
