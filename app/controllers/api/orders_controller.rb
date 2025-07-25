@@ -4,7 +4,7 @@ class Api::OrdersController < ApplicationController
     user = User.find(params[:user_id])
     render json: user.orders, status: :ok
   rescue ActiveRecord::RecordNotFound
-    render json: { error: "Usuário não encontrado" }, status: :not_found
+    render json: { error: I18n.t("errors.user.not_found") }, status: :not_found
   end
 
 
@@ -23,7 +23,7 @@ class Api::OrdersController < ApplicationController
     if user
       render json: user.orders
     else
-      render json: { error: "Usuário não encontrado" }, status: :not_found
+      render json: { error: I18n.t("errors.user.not_found") }, status: :not_found
     end
   end
 
