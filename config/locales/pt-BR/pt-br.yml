@@ -4,11 +4,10 @@ pt-BR:
       session:
         create: "Entrar"
         submit:
-          create: "Criar %{model}"
-          update: "Atualizar %{model}"
-          submit: "Salvar %{model}"
-        session:
-          create: "Entrar"
+          create: "Criar"
+          update: "Atualizar"
+          submit: "Salvar"
+        
   login:
     labels:
       name: "Nome"
@@ -21,7 +20,7 @@ pt-BR:
   errors:
     messages:
       blank: "não pode ficar em branco"
-      greater_than: "%{model} deve ser maior que %{count}"
+      greater_than: "deve ser maior que"
   time:
     formats:
       default: "%d/%m/%Y %H:%M"

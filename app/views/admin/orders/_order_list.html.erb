@@ -1,34 +1,31 @@
-<h2><%= t('orders.my_orders_title') %></h2>
-
-<%= link_to t('orders.new_order_button'), new_order_path %>
-
-<% if @orders.any? %>
+<% if orders.present? %>
+  <h2>Pedidos encontrados:</h2>
   <table border="1" cellspacing="0" cellpadding="8">
     <thead>
       <tr>
-        <th>Descrição</th>
+        <th>ID do Usuário</th>
+        <th>Nome do Usuário</th>
+        <th>Descrição dos Itens</th>
         <th>Endereço de Retirada</th>
         <th>Endereço de Entrega</th>
-        <th>Preço Estimado</th>
-        <th>Data do Pedido</th>
+        <th>Preço Estimado (R$)</th>
+        <th>Data</th>
       </tr>
     </thead>
     <tbody>
-      <% @orders.each do |order| %>
+      <% orders.each do |order| %>
         <tr>
+          <td><%= order.user_id %></td>
+          <td><%= order.user.name %></td>
           <td><%= order.items_description %></td>
           <td><%= order.pickup_address %></td>
           <td><%= order.delivery_address %></td>
-          <td>R$ <%= number_to_currency(order.estimated_price, unit: "", separator: ",", delimiter: ".") %></td>
+          <td><%= number_to_currency(order.estimated_price.to_f, unit: "", separator: ",", delimiter: ".") %></td>
           <td><%= order.requested_at.strftime("%d/%m/%Y %H:%M") %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
-
-  <div style="margin-top: 10px;">
-    <%= will_paginate @orders %>
-  </div>
 <% else %>
-  <p>Você ainda não possui pedidos.</p>
+  <p>Nenhum pedido encontrado.</p>
 <% end %>

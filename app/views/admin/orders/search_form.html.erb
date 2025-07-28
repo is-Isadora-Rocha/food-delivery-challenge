@@ -1,0 +1,25 @@
+<h1>Buscar Pedidos por ID de Usuário (Admin)</h1>
+
+<%= form_with url: admin_orders_search_results_path, method: :post, local: true, data: { turbo: false } do |form| %>
+  <div>
+    <%= form.label :user_id, "ID do Usuário" %><br>
+    <!-- <%#= form.number_field :user_id, required: true %> -->
+    <%= form.collection_select :user_id, @users, :id, :name, prompt: "Escolha um usuário", required: true %>
+
+  </div>
+  <br>
+  <%= form.submit "Buscar Pedidos" %>
+<% end %>
+
+<% if flash[:alert] %>
+  <p style="color: red;"><%= flash[:alert] %></p>
+<% end %>
+
+<% if flash[:notice] %>
+  <p style="color: green;"><%= flash[:notice] %></p>
+<% end %>
+
+<%= render partial: "order_list", locals: { orders: @orders } %>
+<div>
+    <%= link_to "← Voltar ao menu principal", root_path, class: "btn btn-secondary", style: "margin-right: 10px;" %>
+  </div>
