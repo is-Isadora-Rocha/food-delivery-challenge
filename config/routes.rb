@@ -13,14 +13,8 @@ Rails.application.routes.draw do
 
   # Pedidos (Orders)
   # Busca de pedidos por ID de usuário formulário de busca de pedidos
-=begin
-  resources :orders, only: [:index, :new, :create] do
-    collection do
-      get :by_user_form
-      post :by_user
-    end
-  end
-=end
+
+  resources :orders
 
   # -------------ADMIN -------------#
   namespace :admin do
