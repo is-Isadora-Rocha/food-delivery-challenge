@@ -1,20 +1,19 @@
 <h2>Login Falso</h2>
 
-<%= form_with model: @user_login, url: "/session", method: :post, local: true do |f| %>
-  
-  <div>
-    <%= f.label :name, t("login.labels.name") %><br>
-    <%= f.text_field :name, placeholder: t("login.placeholder.name") %>
+<%= form_with model: @user_login, url: "/session", method: :post, local: true, class: "login-form" do |f| %>
+  <div class="form-group">
+    <%= f.label :name, t("login.labels.name"), class: "form-label" %>
+    <%= f.text_field :name, placeholder: t("login.placeholder.name"), class: "form-control", autofocus: true %>
     <%= field_error(@user_login, :name) %>
   </div>
 
-  <div>
-    <%= f.label :email, t("login.labels.email") %><br>
-    <%= f.email_field :email, placeholder: t("login.placeholder.email") %>
+  <div class="form-group">
+    <%= f.label :email, t("login.labels.email"), class: "form-label" %>
+    <%= f.email_field :email, placeholder: t("login.placeholder.email"), class: "form-control" %>
     <%= field_error(@user_login, :email) %>
   </div>
 
-  <div>
-    <%= f.submit t("helpers.submit.session.create") %>
+  <div class="form-actions">
+    <%= f.submit t("helpers.submit.session.create"), class: "btn btn-primary" %>
   </div>
 <% end %>

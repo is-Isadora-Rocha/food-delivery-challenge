@@ -31,6 +31,8 @@ class OrdersController < ApplicationController
 
   def index
     @orders = current_user.orders
+    options = {page: params[:page] || 1, per_page: 3}
+    @orders = @orders.paginate(options)
   end
 
   def new
@@ -43,7 +45,7 @@ class OrdersController < ApplicationController
     @order.requested_at = Time.current
 
     if @order.save
-      redirect_to orders_path
+      redirect_to orders_path, notice: 'Pedido criado com sucesso!'
     else
       puts @order.errors.full_messages
       render :new

@@ -1,37 +1,39 @@
 <h2>Novo Pedido</h2>
 
-<%= form_with model: @order, local: true do |f| %>
-  <div>
+<%= form_with model: @order, url: orders_path, method: :post, local: true do |f| %>
+  <div style="margin-bottom: 15px;">
     <%= f.label :pickup_address, "Endereço de coleta" %><br>
-    <%= f.text_field :pickup_address %>
-    <%= field_error(@order, :pickup_address)%>
+    <%= f.text_field :pickup_address, class: "form-control", placeholder: "Digite o endereço de coleta" %>
+    <%= field_error(@order, :pickup_address) %>
   </div>
 
-  <div>
+  <div style="margin-bottom: 15px;">
     <%= f.label :delivery_address, "Endereço de entrega" %><br>
-    <%= f.text_field :delivery_address %>
-    <%= field_error(@order, :delivery_address)%>
+    <%= f.text_field :delivery_address, class: "form-control", placeholder: "Digite o endereço de entrega" %>
+    <%= field_error(@order, :delivery_address) %>
   </div>
 
-  <div>
+  <div style="margin-bottom: 15px;">
     <%= f.label :items_description, "Descrição dos itens" %><br>
-    <%= f.text_area :items_description %>
-    <%= field_error(@order, :items_description)%>
+    <%= f.text_area :items_description, class: "form-control", rows: 3, placeholder: "Ex: 2 hamburguers sem cebola, etc." %>
+    <%= field_error(@order, :items_description) %>
   </div>
 
-  <div>
+  <div style="margin-bottom: 15px;">
     <%= f.label :estimated_price, "Valor estimado (R$)" %><br>
-    <%= f.number_field :estimated_price, step: 0.01, min: 0.01 %>
-    <%= field_error(@order, :estimated_price)%>
+    <%= f.number_field :estimated_price, step: 0.01, min: 0.01, class: "form-control" %>
+    <%= field_error(@order, :estimated_price) %>
   </div>
-
-
-  <%= f.submit "Criar Pedido" %>
 
   <div style="margin-top: 20px;">
-    <%= link_to "← Voltar ao menu principal", root_path, class: "btn" %><br>
-    <%= link_to "📦 Meus Pedidos", orders_path, class: "btn" %>
-    <%= link_to "🔍 Buscar pedidos por ID de usuário", by_user_orders_path, class: "btn" %>
+    <%= f.submit "Criar Pedido", class: "btn btn-primary" %>
   </div>
 
+  <hr style="margin: 30px 0;">
+
+  <div>
+    <%= link_to "← Voltar ao menu principal", root_path, class: "btn btn-secondary", style: "margin-right: 10px;" %>
+    <%= link_to "📦 Meus Pedidos", orders_path, class: "btn btn-secondary", style: "margin-right: 10px;" %>
+    <%= link_to "🔍 Buscar pedidos por ID de usuário", by_user_orders_path, class: "btn btn-secondary" %>
+  </div>
 <% end %>
