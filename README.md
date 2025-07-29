@@ -1,24 +1,29 @@
-# README
+# 🍽️ Food Delivery App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Aplicação full-stack criada como desafio técnico.  
+Simula um sistema de entrega de comida, com criação e consulta de pedidos.
 
-Things you may want to cover:
+## 🚀 Funcionalidades
 
-* Ruby version
+- Login simples com nome e e-mail (não autenticado)
+- Criação de pedidos
+- Listagem de pedidos do usuário
+- Busca de pedidos por ID do usuário (admin)
+- API para criação e consulta de pedidos
+- Testes de interface com Capybara
 
-* System dependencies
+## 🔧 Tecnologias
 
-* Configuration
+- Ruby on Rails com ERB
+- Sqlite3
+- RSpec + Capybara (testes)
 
-* Database creation
+## 🔗 Rotas principais
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+| Método | Rota                          | Descrição                          |
+|--------|-------------------------------|-------------------------------------|
+| GET    | `/`                           | Tela de login                      |
+| GET    | `/orders` | `/orders/new`     | Lista e cria pedidos               |
+| GET    | `/admin/orders/search`        | Busca de pedidos por ID (admin)    |
+| POST   | `/api/orders`                 | Criação de pedido via API          |
+| GET    | `/api/orders/user/:id`        | Listagem de pedidos via API        |
