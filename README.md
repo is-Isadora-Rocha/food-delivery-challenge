@@ -23,7 +23,7 @@ Simula um sistema de entrega de comida, com criação e consulta de pedidos.
 | Método | Rota                          | Descrição                          |
 |--------|-------------------------------|-------------------------------------|
 | GET    | `/`                           | Tela de login                      |
-| GET    | `/orders` | `/orders/new`     | Lista e cria pedidos               |
+| GET    | `/orders` `/orders/new`       | Lista e cria pedidos               |
 | GET    | `/admin/orders/search`        | Busca de pedidos por ID (admin)    |
 | POST   | `/api/orders`                 | Criação de pedido via API          |
 | GET    | `/api/orders/user/:id`        | Listagem de pedidos via API        |
