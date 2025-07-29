@@ -1,6 +1,7 @@
-<h2><%= t('orders.my_orders_title') %></h2>
+<h2>Meus Pedidos</h2>
 
-<%= link_to t('orders.new_order_button'), new_order_path %>
+<!-- <%#= link_to t('orders.new_order_button'), new_order_path %> -->
+<%= link_to "Novo Pedido", new_order_path %>
 
 <% if @orders.any? %>
   <table border="1" cellspacing="0" cellpadding="8">

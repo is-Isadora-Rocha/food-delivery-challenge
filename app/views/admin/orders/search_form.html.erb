@@ -3,8 +3,8 @@
 <%= form_with url: admin_orders_search_results_path, method: :post, local: true, data: { turbo: false } do |form| %>
   <div>
     <%= form.label :user_id, "ID do Usuário" %><br>
-    <!-- <%#= form.number_field :user_id, required: true %> -->
-    <%= form.collection_select :user_id, @users, :id, :name, prompt: "Escolha um usuário", required: true %>
+    <%= form.number_field :user_id, required: true %> 
+    <!-- <%#= form.collection_select :user_id, @users, :id, :name, prompt: "Escolha um usuário", required: true %> -->
 
   </div>
   <br>

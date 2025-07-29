@@ -6,7 +6,7 @@ class Api::UsersController < ApplicationController
     if user.save
       render json: user, status: :created
     else
-      render json: { error: I18n.t("errors.user.not_found") }, status: :not_found
+      render json: { errors: user.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

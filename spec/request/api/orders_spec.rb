@@ -89,7 +89,7 @@ RSpec.describe "API::Orders", type: :request do
       expect(response).to have_http_status(:unprocessable_entity)
 
       json = JSON.parse(response.body)
-      expect(json["errors"]).to include("Pickup address Não pode estar vazio")
+      expect(json["errors"]).to include("Pickup address não pode ficar em branco")
     end
   end
 end

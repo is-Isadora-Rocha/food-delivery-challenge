@@ -1,5 +1,17 @@
 RSpec.describe User, type: :model do
 
+  # spec/request/api/users_spec.rb
+
+let(:params) do
+  {
+    user: {
+      name: "Isadora",
+      email: "isa@example.com"
+    }
+  }
+  end
+
+
   it "é válido com nome e email" do
     user = User.new(name: "Isa", email: "isa@example.com")
     expect(user).to be_valid

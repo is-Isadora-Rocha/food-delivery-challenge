@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # ----------------- API ----------------- #
   namespace :api do
     get 'orders/user/:id', to: 'orders#by_user'
+    resources :users, only: [:create]
     resources :orders, only: [:index, :create, :show]
   end
 

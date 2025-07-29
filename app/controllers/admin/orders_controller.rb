@@ -5,13 +5,12 @@ class Admin::OrdersController < ApplicationController
   require 'json'
 
   def search_form
-    @users = User.all.order(:id)
-    #@orders = Order.includes(:user).where(user_id: user_id)
+    # @users = User.all.order(:id)
   end
 
   def search_results
     @users = User.all.order(:id)
-    
+
     user_id = params[:user_id]
 
     if user_id.blank?
